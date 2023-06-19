@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #include<stdio.h>
+=======
+#include <stdio.h>
+>>>>>>> 910ad104ca3537706f7ddd9a08f502593e74b16a
  
 int abs(int a)
 {
