@@ -1,19 +1,30 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <limits.h>
 
-int main()
- {
-    char inputString[] = "6.2'5''2''7''8''\0";
-    int res = 0;
+int main() {
+    int arr[] = {64, 842, 203, 612, 907, 210, 456, 90};
+    int len = sizeof(arr) / sizeof(arr[0]);
 
-    for (int i = 0; inputString[i] != '\0'; i++) {
-        if (inputString[i] >= '0' && inputString[i] <= '9') {
-            int ival = inputString[i] - '0';
-            res = res * 10 + ival;
+    int min = INT_MAX;
+    int max = INT_MIN;
+
+    for (int i = 0; i < len; i++) {
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+        if (arr[i] > max) {
+            max = arr[i];
         }
     }
 
-    printf("Converted integer: %d\n", res);
+    printf("Array: ");
+    for (int i = 0; i < len; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    printf("Minimum: %d\n", min);
+    printf("Maximum: %d\n", max);
 
     return 0;
 }

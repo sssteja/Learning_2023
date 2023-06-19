@@ -1,21 +1,21 @@
 #include <stdio.h>
-#include <limits.h>
 
 int main() {
-    int arr[] = {64, 842, 203, 612, 907, 210, 456, 90};
+    int arr[] = {64, 842, 136, 179, 77, 1048, 556};
     int len = sizeof(arr) / sizeof(arr[0]);
 
-    int min = INT_MAX;
-    int max = INT_MIN;
+    int sumEven = 0;
+    int sumOdd = 0;
 
     for (int i = 0; i < len; i++) {
-        if (arr[i] < min) {
-            min = arr[i];
-        }
-        if (arr[i] > max) {
-            max = arr[i];
+        if (arr[i] % 2 == 0) {
+            sumEven += arr[i];
+        } else {
+            sumOdd += arr[i];
         }
     }
+
+    int difference = sumEven - sumOdd;
 
     printf("Array: ");
     for (int i = 0; i < len; i++) {
@@ -23,8 +23,9 @@ int main() {
     }
     printf("\n");
 
-    printf("Minimum: %d\n", min);
-    printf("Maximum: %d\n", max);
+    printf("Sum of even elements: %d\n", sumEven);
+    printf("Sum of odd elements: %d\n", sumOdd);
+    printf("Difference between sum of even and odd elements: %d\n", difference);
 
     return 0;
 }

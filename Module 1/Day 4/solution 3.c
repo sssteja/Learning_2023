@@ -1,25 +1,37 @@
 #include <stdio.h>
 
-int main()
- {
-    int arr[] = {12, 84, 203, 66, 456, 72, 1045, 90};
-    int len = sizeof(arr) / sizeof(arr[0]);
-    int sum = 0;
+void reverseArray(int arr[], int len) {
+    int start = 0;
+    int end = len - 1;
 
-    for (int i = 0; i < len; i++) {
-        sum += arr[i];
+    while (start < end) {
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+
+        start++;
+        end--;
     }
+}
 
-    double avg = (double)sum / len;
+int main() 
+{
+    int arr[] = {64, 842, 203, 612, 907, 210, 456, 90};
+    int len = sizeof(arr) / sizeof(arr[0]);
 
-    printf("Array: ");
+    printf("Original Array: ");
     for (int i = 0; i < len; i++) {
         printf("%d ", arr[i]);
     }
     printf("\n");
 
-    printf("Sum: %d\n", sum);
-    printf("Average: %.2f\n", avg);
+    reverseArray(arr, len);
+
+    printf("Reversed Array: ");
+    for (int i = 0; i < len; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
 
     return 0;
 }
